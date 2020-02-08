@@ -1,0 +1,23 @@
+name: .NET Core
+
+on:
+  push:
+    branches: master
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.2.108
+    - name: Build with dotnet
+      run: dotnet build --configuration Release
+    - name: Pack Nuget
+      run: dotnet pack NetworkConnection/NetworkConnection.csproj
+    - name: Publish nuget to Nuget.org
+      run: dotnet nuget push *.nupkg -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json

@@ -86,9 +86,7 @@ namespace NetworkConnection
         {
             if (disposing)
             {
-                var handler = Disposed;
-                if (handler != null)
-                    handler(this, EventArgs.Empty);
+                Disposed?.Invoke(this, EventArgs.Empty);
             }
 
             WNetCancelConnection2(_networkName, 0, true);

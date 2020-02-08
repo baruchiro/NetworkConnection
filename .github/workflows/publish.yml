@@ -1,4 +1,4 @@
-name: .NET Core
+name: Publish
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
       with:
         dotnet-version: 2.2.108
     - name: Build with dotnet
-      run: dotnet build --configuration Release
+      run: dotnet build NetworkConnection/NetworkConnection.csproj --configuration Release
     - name: Pack Nuget
       run: dotnet pack NetworkConnection/NetworkConnection.csproj
     - name: Publish nuget to Nuget.org

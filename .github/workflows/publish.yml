@@ -18,6 +18,6 @@ jobs:
     - name: Build with dotnet
       run: dotnet build NetworkConnection/NetworkConnection.csproj --configuration Release
     - name: Pack Nuget
-      run: dotnet pack NetworkConnection/NetworkConnection.csproj -o . -c Release --include-symbols --include-source
+      run: dotnet pack NetworkConnection/NetworkConnection.csproj -o . -c Release --include-source
     - name: Publish nuget to Nuget.org
       run: dotnet nuget push *.nupkg -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json

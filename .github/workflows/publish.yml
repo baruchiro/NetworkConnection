@@ -17,3 +17,7 @@ jobs:
       run: dotnet pack NetworkConnection/NetworkConnection.csproj -o . -c Release -p:PackageVersion=1.0.$env:GITHUB_RUN_NUMBER --version-suffix $env:GITHUB_SHA
     - name: Publish nuget to Nuget.org
       run: dotnet nuget push *.nupkg -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json
+    - name: Publish nuget to Github
+      run: |
+        sed 's/GITHUB_TOKEN/${{ secrets.GITHUB_TOKEN }}/g' .nuget/.nuget.config > nuget.config
+        dotnet nuget push "*.nupkg" -s "github"

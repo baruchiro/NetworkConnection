@@ -1,4 +1,4 @@
-﻿namespace NetworkConnection.Win32Objects
+﻿namespace NetworkConnections.Win32Objects
 {
     /// <summary>
     /// The resource scope.

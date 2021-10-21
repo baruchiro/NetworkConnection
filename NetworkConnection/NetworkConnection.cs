@@ -1,10 +1,10 @@
-﻿using NetworkConnection.Win32Objects;
+﻿using NetworkConnections.Win32Objects;
 using System;
 using System.ComponentModel;
 using System.Net;
 using System.Runtime.InteropServices;
 
-namespace NetworkConnection
+namespace NetworkConnections
 {
     /// <summary>
     /// Represents a network connection along with authentication to a network share.

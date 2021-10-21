@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace NetworkConnection.Win32Objects
+namespace NetworkConnections.Win32Objects
 {
     /// <summary>
     /// The net resource.
